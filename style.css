@@ -1,0 +1,169 @@
+/* ==============================
+   Mise en page générale
+   ============================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff8f4;
+    color: #3a3030;
+}
+
+.container {
+    width: min(90%, 650px);
+    margin: 60px auto;
+    text-align: center;
+}
+
+
+/* ==============================
+   Textes
+   ============================== */
+
+.intro {
+    margin: 0 0 18px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.instruction {
+    margin: 0 0 30px;
+    font-size: 1.15rem;
+}
+
+
+/* ==============================
+   Boutons radio
+   ============================== */
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.choice {
+    width: min(100%, 430px);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+
+    border: 2px solid #e4cfc7;
+    border-radius: 12px;
+    background: #ffffff;
+
+    cursor: pointer;
+    text-align: left;
+
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.choice:hover {
+    border-color: #c99f91;
+    transform: translateY(-2px);
+}
+
+.choice input {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    flex-shrink: 0;
+    accent-color: #b87865;
+}
+
+.choice:has(input:checked) {
+    border-color: #b87865;
+    background: #fff0eb;
+}
+
+
+/* ==============================
+   Images
+   ============================== */
+
+.images {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+}
+
+.image {
+    display: none;
+
+    /*
+       Format 4:5 :
+       largeur 100% / hauteur automatique
+       grâce au ratio de l'image.
+    */
+    width: min(100%, 480px);
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ==============================
+   Affichage conditionnel
+   Sans JavaScript
+   ============================== */
+
+/*
+   Quand le bouton "aventurière" est coché,
+   on affiche uniquement son image.
+*/
+#aventure:checked ~ span {
+    /* Le style du choix sélectionné est géré plus haut. */
+}
+
+/*
+   Les deux labels sont avant les images dans le HTML.
+   Pour permettre au CSS de détecter le bouton coché
+   depuis le conteneur parent, on utilise :has().
+*/
+.container:has(#aventure:checked) .image-aventure {
+    display: block;
+}
+
+.container:has(#coquette:checked) .image-cosmetique {
+    display: block;
+}
+
+
+/* ==============================
+   Version mobile
+   ============================== */
+
+@media (max-width: 600px) {
+    .container {
+        margin: 35px auto;
+    }
+
+    .intro {
+        font-size: 1.6rem;
+    }
+
+    .instruction {
+        font-size: 1rem;
+    }
+
+    .choice {
+        padding: 14px 16px;
+    }
+}

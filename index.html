@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pour les 27 ans de Lola</title>
+
+    <!-- Liaison avec le fichier CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="container">
+        <p class="intro">Pour les 27 ans de Lola</p>
+
+        <p class="instruction">
+            Choisis ton cadeau parmi les 2 propositions suivantes:
+        </p>
+
+        <div class="choices">
+            <!-- Choix 1 -->
+            <label class="choice">
+                <input type="radio" name="cadeau" id="aventure">
+                <span>Un cadeau pour une aventurière</span>
+            </label>
+
+            <!-- Choix 2 -->
+            <label class="choice">
+                <input type="radio" name="cadeau" id="coquette">
+                <span>Un cadeau pour une coquette</span>
+            </label>
+        </div>
+
+        <!--
+            Remplace les deux chemins ci-dessous par les chemins vers tes images.
+
+            Exemple :
+            src="images/image_aventure.jpg"
+            src="images/image_cosmetique.jpg"
+
+            Les images sont prévues en format 4:5.
+        -->
+        <div class="images">
+            <img
+                class="image image-aventure"
+                src="img/planeur.png"
+                alt="Cadeau pour une aventurière"
+            >
+
+            <img
+                class="image image-cosmetique"
+                src="img/cosmetiques.png"
+                alt="Cadeau pour une coquette"
+            >
+        </div>
+    </main>
+</body>
+</html>
